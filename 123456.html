@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<div id="demohover">
+    
+<img src="WP_20141004_014(10).jpg" width="500" height="260"
+    </div>
+<script>    
+ $(function() {
+ $('#demohover img').animate({"opacity": .5 });
+ $('#demohover img').hover(function() {
+ $(this).animate({ "opacity": 1 });
+ 			  }, function() {
+ $(this).animate({ "opacity": .5 });
+ 							});
+			});
+</script>
+</head>
+<body>
+</body>
+</html>

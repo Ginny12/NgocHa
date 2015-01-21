@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>face</title>
+</head>
+<script src="jquery-1.4.3.min.js"></script>
+<script src="facedetection/ccv.js"></script>
+<script src="facedetection/face.js"></script>
+<script src="jquery.facedetection.js"></script>
+
+<img src="WP_20141004_014(10).jpg" width="500" height="260">
+
+<script> 
+var coords = jQuery("#myImage").faceDetection();
+var coords = jQuery("#myImage").faceDetection({
+    complete: function(image, coords) {
+    },
+    error: function() {
+        console.warn("Could not process image");
+    }
+	});
+jQuery("img").each(function() {
+    var img = this;
+    var coordinates = jQuery(img).faceDetection();
+    if(coordinates.length) {
+        coordinates.forEach(function(coord) {
+            jQuery("<div>", {
+                css: {
+                    position: "absolute",
+                    left: coord.positionX + 5 + "px",
+                    top: coord.positionY + 5 + "px",
+                    width: coord.width + "px",
+                    height: coord.height + "px",
+                    border: "3px solid white"
+                }
+            }).appendTo(img.parentNode);
+        });
+    }
+		});
+</script>
+<body>
+</body>
+</html>
